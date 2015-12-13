@@ -1,7 +1,7 @@
 # report-it
 Multiplatform app for reporting POIs. 
 
-1. Take photo
+1. Take a photo
 2. Choose type
 3. Report
 
