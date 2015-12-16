@@ -3,8 +3,8 @@ var path = require('path');
 
 const PATH = {
   app: path.resolve(__dirname, 'app', 'js', 'index.jsx'),
-  build: path.resolve(__dirname, 'build', 'js'),
-  public: path.resolve(__dirname, 'public'),
+  build: path.resolve(__dirname, 'build'),
+  assets: path.resolve(__dirname, 'build', 'assets', 'js'),
   nodeModules: path.resolve(__dirname, 'node_modules')
 };
 
@@ -17,13 +17,13 @@ module.exports = {
   ],
 
   output: {
-    path: PATH.build,
-    publicPath: '/js/',
+    path: PATH.assets,
+    publicPath: '/assets/js/',
     filename: 'bundle.js'
   },
 
   devServer: {
-    contentBase: PATH.public
+    contentBase: PATH.build
   },
 
   devtool: 'source-map',
