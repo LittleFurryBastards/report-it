@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base app"
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot"
   },
   "repository": {
     "type": "git",
@@ -21,11 +21,18 @@
   },
   "homepage": "https://github.com/aleksandrenko/report-it#readme",
   "dependencies": {
-    "jsx-loader": "^0.13.2",
-    "react": "0.13.3",
-    "react-router": "0.13.3"
+    "history": "^1.13.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^1.0.2"
   },
   "devDependencies": {
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "babel-preset-react": "^6.3.13",
+    "css-loader": "^0.23.0",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }
