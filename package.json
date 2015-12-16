@@ -1,0 +1,32 @@
+{
+  "name": "report-it",
+  "version": "0.0.0",
+  "description": "Multiplatform app for reporting POIs.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --content-base app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aleksandrenko/report-it.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/aleksandrenko/report-it/issues"
+  },
+  "homepage": "https://github.com/aleksandrenko/report-it#readme",
+  "dependencies": {
+    "jsx-loader": "^0.13.2",
+    "react": "0.13.3",
+    "react-router": "0.13.3"
+  },
+  "devDependencies": {
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}
