@@ -2,28 +2,50 @@ var Webpack = require('webpack');
 var path = require('path');
 
 const PATH = {
-  main: path.resolve(__dirname, 'app', 'js', 'main.js'),
-  build: path.resolve(__dirname, 'app', 'js'),
+  app: path.resolve(__dirname, 'app', 'js', 'index.jsx'),
+  build: path.resolve(__dirname, 'build', 'js'),
+  public: path.resolve(__dirname, 'public'),
   nodeModules: path.resolve(__dirname, 'node_modules')
 };
 
 module.exports = {
+
   entry: [
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080',
-    PATH.main
+    PATH.app
   ],
+
   output: {
-    path:     PATH.build,
-    publicPath: '/js/', //TODO make this more transparent
+    path: PATH.build,
+    publicPath: '/js/',
     filename: 'bundle.js'
   },
+
+  devServer: {
+    contentBase: PATH.public
+  },
+
+  devtool: 'source-map',
+
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx$/,
         exclude: PATH.nodeModules,
-        loader: 'jsx-loader'
+        loader: 'babel',
+        query: {
+          presets: ['react']
+        }
+      },
+      {
+        test: /\.scss$/,
+        exclude: PATH.nodeModules,
+        loader: 'style!css!sass'
       }
     ]
   },
