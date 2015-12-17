@@ -51,7 +51,7 @@ module.exports = {
         exclude: FOLDER.nodeModules,
         loader: 'babel',
         query: {
-          presets: ['react']
+          presets: ['es2015', 'react']
         }
       },
       {

@@ -1,7 +1,7 @@
-var React = require('react');
-require('./styles.css');
+import React from 'react';
+import styles from './styles.css';
 
-var Navigation = React.createClass({
+let Navigation = React.createClass({
   render: function () {
     return (
       <nav className="navigation">
@@ -16,7 +16,7 @@ var Navigation = React.createClass({
   }
 });
 
-var Layout = React.createClass({
+let Layout = React.createClass({
   getInitialState: function () {
     return {
       isOpen: true
@@ -50,4 +50,4 @@ var Layout = React.createClass({
   }
 });
 
-module.exports = Layout;
+export default Layout;
