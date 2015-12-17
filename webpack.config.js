@@ -38,7 +38,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx$/,
+        test: /\.(es6|jsx)$/,
         exclude: PATH.nodeModules,
         loader: 'babel',
         query: {
