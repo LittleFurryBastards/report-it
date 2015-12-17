@@ -1,12 +1,20 @@
-var Webpack = require('webpack');
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const Webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const FOLDER = {
+  assets: 'assets',
+  build: 'build',
+  javascript: 'js',
+  nodeModules: 'node_modules',
+  source: 'app',
+  styles: 'css',
+  vendor: 'vendor'
+};
 
 const PATH = {
-  app: path.resolve(__dirname, 'app', 'js', 'index.jsx'),
-  build: path.resolve(__dirname, 'build'),
-  assets: path.resolve(__dirname, 'build', 'assets'),
-  nodeModules: path.resolve(__dirname, 'node_modules')
+  entry: path.resolve(__dirname, FOLDER.source, FOLDER.javascript, 'index.jsx'),
+  assets: path.resolve(__dirname, FOLDER.build, FOLDER.assets)
 };
 
 module.exports = {
@@ -15,19 +23,19 @@ module.exports = {
     app: [
       'webpack/hot/dev-server',
       'webpack-dev-server/client?http://localhost:8080',
-      PATH.app
+      PATH.entry
     ],
     vendor: ['react', 'react-dom']
   },
 
   output: {
     path: PATH.assets,
-    publicPath: '/assets/',
-    filename: '/js/bundle.js'
+    publicPath: FOLDER.assets,
+    filename: FOLDER.javascript + '/bundle.js'
   },
 
   devServer: {
-    contentBase: PATH.build
+    contentBase: FOLDER.build
   },
 
   devtool: 'source-map',
@@ -40,7 +48,7 @@ module.exports = {
     loaders: [
       {
         test: /\.(es6|jsx)$/,
-        exclude: PATH.nodeModules,
+        exclude: FOLDER.nodeModules,
         loader: 'babel',
         query: {
           presets: ['react']
@@ -48,12 +56,12 @@ module.exports = {
       },
       {
         test: /\.css/,
-        exclude: PATH.nodeModules,
+        exclude: FOLDER.nodeModules,
         loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass'
       },
       {
         test: /\.scss$/,
-        exclude: PATH.nodeModules,
+        exclude: FOLDER.nodeModules,
         loader: ExtractTextPlugin.extract('style', 'css!autoprefixer-loader?browsers=last 2 versions!sass')
       }
     ]
@@ -61,7 +69,7 @@ module.exports = {
 
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
-    new Webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor/bundle.js'),
-    new ExtractTextPlugin('css/styles.css')
+    new Webpack.optimize.CommonsChunkPlugin('vendor', FOLDER.javascript + '/' + FOLDER.vendor + '/bundle.js'),
+    new ExtractTextPlugin(FOLDER.styles + '/styles.css')
   ]
 };
