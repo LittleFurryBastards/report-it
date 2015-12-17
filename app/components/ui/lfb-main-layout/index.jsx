@@ -1,4 +1,5 @@
 var React = require('react');
+require('./styles.css');
 
 var Navigation = React.createClass({
   render: function () {

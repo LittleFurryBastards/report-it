@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Layout = require('./components/Layout.jsx');
+var Layout = require('./../components/ui/lfb-main-layout/index.jsx');
 
 require('../css/main.scss');
 

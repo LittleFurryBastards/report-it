@@ -1,10 +1,11 @@
 var Webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const PATH = {
   app: path.resolve(__dirname, 'app', 'js', 'index.jsx'),
   build: path.resolve(__dirname, 'build'),
-  assets: path.resolve(__dirname, 'build', 'assets', 'js'),
+  assets: path.resolve(__dirname, 'build', 'assets'),
   nodeModules: path.resolve(__dirname, 'node_modules')
 };
 
@@ -16,13 +17,13 @@ module.exports = {
       'webpack-dev-server/client?http://localhost:8080',
       PATH.app
     ],
-    libs: ['react', 'react-dom']
+    vendor: ['react', 'react-dom']
   },
 
   output: {
     path: PATH.assets,
-    publicPath: '/assets/js/',
-    filename: 'bundle.js'
+    publicPath: '/assets/',
+    filename: '/js/bundle.js'
   },
 
   devServer: {
@@ -46,15 +47,21 @@ module.exports = {
         }
       },
       {
+        test: /\.css/,
+        exclude: PATH.nodeModules,
+        loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass'
+      },
+      {
         test: /\.scss$/,
         exclude: PATH.nodeModules,
-        loader: 'style!css!autoprefixer!sass'
+        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer-loader?browsers=last 2 versions!sass')
       }
     ]
   },
 
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
-    new Webpack.optimize.CommonsChunkPlugin('libs', 'libs.bundle.js')
+    new Webpack.optimize.CommonsChunkPlugin('vendor', 'js/vendor/bundle.js'),
+    new ExtractTextPlugin('css/styles.css')
   ]
 };

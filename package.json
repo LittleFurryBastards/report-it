@@ -28,10 +28,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^6.1.2",
+    "autoprefixer-loader": "^3.1.0",
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
     "babel-preset-react": "^6.3.13",
     "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^0.9.1",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
