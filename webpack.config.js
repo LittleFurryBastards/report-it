@@ -10,11 +10,14 @@ const PATH = {
 
 module.exports = {
 
-  entry: [
-    'webpack/hot/dev-server',
-    'webpack-dev-server/client?http://localhost:8080',
-    PATH.app
-  ],
+  entry: {
+    app: [
+      'webpack/hot/dev-server',
+      'webpack-dev-server/client?http://localhost:8080',
+      PATH.app
+    ],
+    libs: ['react', 'react-dom']
+  },
 
   output: {
     path: PATH.assets,
@@ -50,5 +53,8 @@ module.exports = {
     ]
   },
 
-  plugins: [new Webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.optimize.CommonsChunkPlugin('libs', 'libs.bundle.js')
+  ]
 };

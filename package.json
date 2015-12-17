@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "webpack",
+    "start": "webpack -p",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot"
   },
   "repository": {
