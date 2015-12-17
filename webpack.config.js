@@ -49,12 +49,12 @@ module.exports = {
       {
         test: /\.css/,
         exclude: PATH.nodeModules,
-        loader: 'style!css!sass'
+        loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass'
       },
       {
         test: /\.scss$/,
         exclude: PATH.nodeModules,
-        loader: ExtractTextPlugin.extract('style', 'css!sass')
+        loader: ExtractTextPlugin.extract('style', 'css!autoprefixer-loader?browsers=last 2 versions!sass')
       }
     ]
   },
