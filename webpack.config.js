@@ -48,7 +48,7 @@ module.exports = {
       {
         test: /\.scss$/,
         exclude: PATH.nodeModules,
-        loader: 'style!css!sass'
+        loader: 'style!css!autoprefixer!sass'
       }
     ]
   },
