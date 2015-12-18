@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FOLDER = {
   assets: 'assets',
   build: 'build',
+  components: 'components',
   javascript: 'js',
   nodeModules: 'node_modules',
   source: 'app',
@@ -13,8 +14,10 @@ const FOLDER = {
 };
 
 const PATH = {
+  assets: path.resolve(__dirname, FOLDER.build, FOLDER.assets),
+  components: path.resolve(__dirname, FOLDER.source, FOLDER.components),
   entry: path.resolve(__dirname, FOLDER.source, FOLDER.javascript, 'index.jsx'),
-  assets: path.resolve(__dirname, FOLDER.build, FOLDER.assets)
+  styles: path.resolve(__dirname, FOLDER.source, FOLDER.styles)
 };
 
 module.exports = {
@@ -54,14 +57,18 @@ module.exports = {
           presets: ['es2015', 'react']
         }
       },
+
+      // Build inline styles for all components
       {
-        test: /\.css/,
-        exclude: FOLDER.nodeModules,
+        test: /\.scss/,
+        exclude: [FOLDER.nodeModules, PATH.styles],
         loader: 'style!css!autoprefixer-loader?browsers=last 2 versions!sass'
       },
+
+      // Build main styles
       {
         test: /\.scss$/,
-        exclude: FOLDER.nodeModules,
+        exclude: [FOLDER.nodeModules, PATH.components],
         loader: ExtractTextPlugin.extract('style', 'css!autoprefixer-loader?browsers=last 2 versions!sass')
       }
     ]
