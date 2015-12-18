@@ -4,24 +4,21 @@
   height: 100vh;
 }
 
-.header,
 .footer {
   height: 3rem;
-  background: yellow;
 }
 
 .content {
   flex-grow: 1;
-  background: lightblue;
 }
 
 .aside {
-  background: lightgreen;
   position: absolute;
   top: 0;
   bottom: 0;
   left: -20rem;
   width: 20rem;
+  will-change: transform;
 }
 
 .aside--open {

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.scss';
+import Header from '../lfb-header/index.jsx';
 import Navigation from '../lfb-navigation/index.jsx';
 
 export default React.createClass({
@@ -9,29 +10,25 @@ export default React.createClass({
     };
   },
   render: function () {
-    let asideClassName = this.state.isOpen ? 'aside aside--open' : 'aside';
+    let asideClassName = 'aside ';
+    asideClassName += this.state.isOpen ? 'aside--open' : '';
 
     return (
       <main className="lfb-main-layout__wrapper">
-        <div className="header">
-          <button onClick={this.showAside}>menu</button>
-        </div>
+        <Header onMenuClick={this.toggleMenu}/>
+
         <article className="content">3</article>
-        <aside className={asideClassName} onClick={this.hideAside}>
+
+        <aside className={asideClassName} onClick={this.toggleMenu}>
           <Navigation/>
         </aside>
+
         <footer className="footer">2</footer>
       </main>
     );
   },
 
-  showAside: function (event) {
-    this.setState({isOpen: true});
-  },
-
-  hideAside: function (event) {
-    if (event.target.classList.contains('aside--open')) {
-      this.setState({isOpen: false});
-    }
+  toggleMenu: function () {
+    this.setState({isOpen: !this.state.isOpen});
   }
 });
