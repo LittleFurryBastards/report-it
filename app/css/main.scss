@@ -1,6 +1,3 @@
 @import "./variables.scss";
-@import "./normalize.scss";
-
-body {
-  min-height: 100vh;
-}
+@import "./reset.scss";
+@import "./theming.scss";
