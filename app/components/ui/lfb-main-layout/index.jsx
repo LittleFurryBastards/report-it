@@ -1,32 +1,18 @@
 import React from 'react';
 import styles from './styles.scss';
+import Navigation from '../lfb-navigation/index.jsx';
 
-let Navigation = React.createClass({
-  render: function () {
-    return (
-      <nav className="navigation">
-        <ul>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-        </ul>
-      </nav>
-    );
-  }
-});
-
-let Layout = React.createClass({
+export default React.createClass({
   getInitialState: function () {
     return {
       isOpen: true
     };
   },
   render: function () {
-    var asideClassName = this.state.isOpen ? 'aside aside--open' : 'aside';
+    let asideClassName = this.state.isOpen ? 'aside aside--open' : 'aside';
 
     return (
-      <main className="wrapper">
+      <main className="lfb-main-layout__wrapper">
         <div className="header">
           <button onClick={this.showAside}>menu</button>
         </div>
@@ -49,5 +35,3 @@ let Layout = React.createClass({
     }
   }
 });
-
-export default Layout;
