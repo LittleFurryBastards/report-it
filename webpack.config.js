@@ -48,6 +48,15 @@ module.exports = {
   },
 
   module: {
+
+    preLoaders: [
+      {
+        test: /\.(es6|jsx)$/,
+        loaders: ['eslint'],
+        exclude: FOLDER.nodeModules
+      }
+    ],
+
     loaders: [
       {
         test: /\.(es6|jsx)$/,
