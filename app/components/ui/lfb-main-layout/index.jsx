@@ -20,7 +20,7 @@ let Layout = React.createClass({
   getInitialState: function () {
     return {
       isOpen: true
-    }
+    };
   },
   render: function () {
     var asideClassName = this.state.isOpen ? 'aside aside--open' : 'aside';
