@@ -3,8 +3,6 @@ sudo: false
 node_js:
   - "5.3.0"
 
-before_script:
-  - npm install -g webpack
-
 script:
-  - npm start
+  - npm run eslint
+  - npm run jscs

@@ -7,9 +7,10 @@
     "doc": "docs"
   },
   "scripts": {
-    "start": "webpack -p",
-    "dev": "webpack-dev-server --devtool eval --progress --colors --hot",
-    "lint": "eslint . --ext .js --ext .jsx || true"
+    "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --devtool eval --progress --colors --hot",
+    "start": "WEBPACK_ENV=pro ./node_modules/.bin/webpack  -p",
+    "eslint": "./node_modules/.bin/eslint . --ext .js --ext .jsx",
+    "jscs": "./node_modules/.bin/jscs . --config=./.jscsrc"
   },
   "repository": {
     "type": "git",
