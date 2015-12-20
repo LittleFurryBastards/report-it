@@ -30,6 +30,8 @@
   "disallowTrailingComma": null,
   "disallowTrailingWhitespace": true,
   "disallowYodaConditions": true,
+  "excludeFiles": ["build", "node_modules"],
+  "fileExtensions": [".js", ".jsx"],
   "jsDoc": {
     "checkAnnotations": "jsdoc3",
     "checkParamNames": true,
