@@ -7,10 +7,11 @@
     "doc": "docs"
   },
   "scripts": {
-    "dev": "WEBPACK_ENV=dev ./node_modules/.bin/webpack --devtool eval --progress --colors --hot",
-    "start": "WEBPACK_ENV=pro ./node_modules/.bin/webpack  -p",
+    "dev": "./node_modules/.bin/webpack-dev-server --devtool eval --progress --colors --hot",
+    "start": "./node_modules/.bin/webpack  -p",
     "eslint": "./node_modules/.bin/eslint . --ext .js --ext .jsx",
-    "jscs": "./node_modules/.bin/jscs . --config=./.jscsrc"
+    "jscs": "./node_modules/.bin/jscs . --config=./.jscsrc",
+    "stylelint": "./node_modules/.bin/stylelint app/**/*.scss --config stylelintrc.json -s scss"
   },
   "repository": {
     "type": "git",
