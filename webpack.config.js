@@ -1,7 +1,7 @@
 const path = require('path');
 const Webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const stylelintConfig = require('./stylelintrc.config');
+const stylelintConfig = require('./stylelintrc.json');
 
 const FOLDER = {
   assets: 'assets',
@@ -55,11 +55,6 @@ module.exports = {
         test: /\.(es6|jsx)$/,
         loaders: ['eslint', 'jscs'],
         exclude: FOLDER.nodeModules
-      },
-      {
-        test: /\.scss$/,
-        loaders: ['postcss'],
-        exclude: FOLDER.nodeModules
       }
     ],
 
@@ -77,21 +72,21 @@ module.exports = {
       {
         test: /\.scss/,
         exclude: [FOLDER.nodeModules, PATH.styles],
-        loader: 'style!css!sass'
+        loader: 'style!css!postcss!sass'
       },
 
       // Build main styles
       {
         test: /\.scss$/,
         exclude: [FOLDER.nodeModules, PATH.components],
-        loader: ExtractTextPlugin.extract('style', 'css!sass')
+        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
       }
     ]
   },
 
   postcss: function () {
     return [
-      require('stylelint')({rules: stylelintConfig}),
+      require('stylelint')(stylelintConfig),
       require('autoprefixer')({browsers: ['last 4 version']})
     ];
   },
