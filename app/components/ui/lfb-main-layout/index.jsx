@@ -1,7 +1,9 @@
+'use strict';
+
 import React from 'react';
-import styles from './styles.scss';
 import Header from '../lfb-header/index.jsx';
 import Navigation from '../lfb-navigation/index.jsx';
+require('./styles.scss');
 
 export default React.createClass({
   getInitialState: function () {

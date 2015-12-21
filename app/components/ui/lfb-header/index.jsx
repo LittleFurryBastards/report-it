@@ -1,7 +1,12 @@
+'use strict';
+
 import React from 'react';
-import styles from './styles.scss';
+require('./styles.scss');
 
 export default React.createClass({
+  propTypes: {
+    onMenuClick: React.PropTypes.func.isRequired
+  },
   render: function () {
     return (
       <header className="lfb-header">

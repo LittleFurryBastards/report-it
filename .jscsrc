@@ -30,7 +30,7 @@
   "disallowTrailingComma": null,
   "disallowTrailingWhitespace": true,
   "disallowYodaConditions": true,
-  "excludeFiles": ["build", "node_modules"],
+  "excludeFiles": ["build", "node_modules", ".eslintrc.js"],
   "fileExtensions": [".js", ".jsx"],
   "jsDoc": {
     "checkAnnotations": "jsdoc3",
