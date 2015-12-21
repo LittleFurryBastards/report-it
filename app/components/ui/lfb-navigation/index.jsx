@@ -1,5 +1,7 @@
+'use strict';
+
 import React from 'react';
-import styles from './styles.scss';
+require('./styles.scss');
 
 export default React.createClass({
   render: function () {
