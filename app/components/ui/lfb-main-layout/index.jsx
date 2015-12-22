@@ -6,13 +6,14 @@ import Navigation from '../lfb-navigation/index.jsx';
 require('./styles.scss');
 
 export default React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {
       isOpen: true
     };
   },
-  render: function () {
+  render() {
     let asideClassName = 'aside ';
+
     asideClassName += this.state.isOpen ? 'aside--open' : '';
 
     return (
@@ -30,7 +31,7 @@ export default React.createClass({
     );
   },
 
-  toggleMenu: function () {
+  toggleMenu() {
     this.setState({isOpen: !this.state.isOpen});
   }
 });
