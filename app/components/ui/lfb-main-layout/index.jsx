@@ -3,12 +3,13 @@
 import React from 'react';
 import Header from '../lfb-header/index.jsx';
 import Navigation from '../lfb-navigation/index.jsx';
+import List from '../lfb-filtered-list/index.jsx';
 require('./styles.scss');
 
 export default React.createClass({
   getInitialState() {
     return {
-      isOpen: true
+      isOpen: false
     };
   },
   render() {
@@ -20,7 +21,9 @@ export default React.createClass({
       <main className="lfb-main-layout__wrapper">
         <Header onMenuClick={this.toggleMenu}/>
 
-        <article className="content">3</article>
+        <article className="content">
+          <List />
+        </article>
 
         <aside className={asideClassName} onClick={this.toggleMenu}>
           <Navigation/>
