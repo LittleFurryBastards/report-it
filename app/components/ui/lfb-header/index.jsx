@@ -1,7 +1,10 @@
 'use strict';
 
 import React from 'react';
-require('./styles.scss');
+
+// Styles
+import styles from './lfb-header.scss';
+require('./theming/lfb-header.scss');
 
 export default React.createClass({
   propTypes: {
@@ -9,7 +12,7 @@ export default React.createClass({
   },
   render() {
     return (
-      <header className="lfb-header">
+      <header className={styles.header}>
         <button onClick={this.props.onMenuClick}>menu</button>
       </header>
     );
