@@ -4,7 +4,7 @@ import React from 'react';
 require('./styles.scss');
 
 export default React.createClass({
-  render: function () {
+  render() {
     return (
       <nav className="navigation">
         <ul>

@@ -5,5 +5,4 @@ node_js:
 
 script:
   - npm run eslint
-  - npm run jscs
   - npm run stylelint
