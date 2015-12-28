@@ -7,7 +7,7 @@ export default React.createClass({
   propTypes: {
     onMenuClick: React.PropTypes.func.isRequired
   },
-  render: function () {
+  render() {
     return (
       <header className="lfb-header">
         <button onClick={this.props.onMenuClick}>menu</button>

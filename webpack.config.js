@@ -55,7 +55,7 @@ module.exports = {
     preLoaders: [
       {
         test: /\.(es6|jsx)$/,
-        loaders: ['eslint', 'jscs'],
+        loaders: ['eslint'],
         exclude: FOLDER.nodeModules
       }
     ],
