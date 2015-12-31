@@ -3,7 +3,10 @@
 import React from 'react';
 import Header from '../lfb-header/index.jsx';
 import Navigation from '../lfb-navigation/index.jsx';
-require('./styles.scss');
+
+// Styles
+import styles from './lfb-main-layout.scss';
+require('./theming/lfb-main-layout.scss');
 
 export default React.createClass({
   propTypes: {
@@ -12,26 +15,24 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      isOpen: true
+      isOpen: false
     };
   },
 
   render() {
-    let asideClassName = 'aside ';
-
-    asideClassName += this.state.isOpen ? 'aside--open' : '';
+    const openStyle = this.state.isOpen && `${styles.aside}--open`;
 
     return (
-      <main className="lfb-main-layout__wrapper">
+      <main className={styles.wrapper}>
         <Header onMenuClick={this.toggleMenu}/>
 
-        <article className="content">{this.props.children}</article>
+        <article className={styles.content}>{this.props.children}</article>
 
-        <aside className={asideClassName} onClick={this.toggleMenu}>
+        <aside className={`${styles.aside} ${openStyle}`} onClick={this.toggleMenu}>
           <Navigation/>
         </aside>
 
-        <footer className="footer">Footer</footer>
+        <footer className={styles.footer}>Footer</footer>
       </main>
     );
   },

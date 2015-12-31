@@ -74,14 +74,14 @@ module.exports = {
       {
         test: /\.scss/,
         exclude: [FOLDER.nodeModules, PATH.styles],
-        loader: 'style!css!postcss!sass'
+        loader: 'style!css?modules&localIdentName=[name]__[local]!postcss!sass'
       },
 
       // Build main styles
       {
         test: /\.scss$/,
         exclude: [FOLDER.nodeModules, PATH.components],
-        loader: ExtractTextPlugin.extract('style', 'css!postcss!sass')
+        loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]!postcss!sass')
       }
     ]
   },

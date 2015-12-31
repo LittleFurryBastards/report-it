@@ -3,7 +3,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-require('./styles.scss');
+require('./lfb-navigation.scss');
 
 export default React.createClass({
   render() {
