@@ -6,11 +6,16 @@ import Navigation from '../lfb-navigation/index.jsx';
 require('./styles.scss');
 
 export default React.createClass({
+  propTypes: {
+    children: React.PropTypes.node
+  },
+
   getInitialState() {
     return {
       isOpen: true
     };
   },
+
   render() {
     let asideClassName = 'aside ';
 
@@ -20,13 +25,13 @@ export default React.createClass({
       <main className="lfb-main-layout__wrapper">
         <Header onMenuClick={this.toggleMenu}/>
 
-        <article className="content">3</article>
+        <article className="content">{this.props.children}</article>
 
         <aside className={asideClassName} onClick={this.toggleMenu}>
           <Navigation/>
         </aside>
 
-        <footer className="footer">2</footer>
+        <footer className="footer">Footer</footer>
       </main>
     );
   },

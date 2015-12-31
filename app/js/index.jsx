@@ -1,13 +1,12 @@
 'use strict';
 
-import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from '../components/ui/lfb-main-layout/index.jsx';
+import routes from './routes.jsx';
 
 // Create separated .css file
 require('../css/main.scss');
 
 ReactDOM.render(
-  <Layout/>,
+  routes,
   document.getElementById('app')
 );
