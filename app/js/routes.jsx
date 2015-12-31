@@ -8,7 +8,6 @@ import Layout from '../components/ui/lfb-main-layout/index.jsx';
 import Home from '../components/pages/home.jsx';
 import About from '../components/pages/about.jsx';
 
-// TODO: Use createBrowserHistory instead. Needs to find why on page reload the routes are not persistent.
 const history = createHashHistory({
   queryKey: false
 });
