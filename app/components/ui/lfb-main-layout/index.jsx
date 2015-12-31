@@ -3,30 +3,31 @@
 import React from 'react';
 import Header from '../lfb-header/index.jsx';
 import Navigation from '../lfb-navigation/index.jsx';
-require('./styles.scss');
+
+// Styles
+import styles from './lfb-main-layout.scss';
+require('./theming/lfb-main-layout.scss');
 
 export default React.createClass({
   getInitialState() {
     return {
-      isOpen: true
+      isOpen: false
     };
   },
   render() {
-    let asideClassName = 'aside ';
-
-    asideClassName += this.state.isOpen ? 'aside--open' : '';
-
     return (
-      <main className="lfb-main-layout__wrapper">
+      <main className={styles.wrapper}>
         <Header onMenuClick={this.toggleMenu}/>
 
-        <article className="content">3</article>
+        <article className={styles.content}>3</article>
 
-        <aside className={asideClassName} onClick={this.toggleMenu}>
+        <aside
+          className={this.state.isOpen ? `${styles.aside}` : `${styles.aside} ${styles.aside}--open`}
+          onClick={this.toggleMenu}>
           <Navigation/>
         </aside>
 
-        <footer className="footer">2</footer>
+        <footer className={styles.footer}>2</footer>
       </main>
     );
   },
