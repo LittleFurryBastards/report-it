@@ -64,10 +64,7 @@ module.exports = {
       {
         test: /\.(es6|jsx)$/,
         exclude: FOLDER.nodeModules,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        loaders: ['react-hot', 'babel']
       },
 
       // Build inline styles for all components
@@ -94,7 +91,6 @@ module.exports = {
   },
 
   plugins: [
-    new Webpack.HotModuleReplacementPlugin(),
     new Webpack.optimize.CommonsChunkPlugin('vendor', FOLDER.javascript + '/' + FOLDER.vendor + '/bundle.js'),
     new ExtractTextPlugin(FOLDER.styles + '/styles.css')
   ]
