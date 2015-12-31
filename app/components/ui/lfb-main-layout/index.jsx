@@ -9,11 +9,16 @@ import styles from './lfb-main-layout.scss';
 require('./theming/lfb-main-layout.scss');
 
 export default React.createClass({
+  propTypes: {
+    children: React.PropTypes.node
+  },
+
   getInitialState() {
     return {
       isOpen: false
     };
   },
+
   render() {
     const openStyle = this.state.isOpen && `${styles.aside}--open`;
 
@@ -21,13 +26,13 @@ export default React.createClass({
       <main className={styles.wrapper}>
         <Header onMenuClick={this.toggleMenu}/>
 
-        <article className={styles.content}>3</article>
+        <article className={styles.content}>{this.props.children}</article>
 
         <aside className={`${styles.aside} ${openStyle}`} onClick={this.toggleMenu}>
           <Navigation/>
         </aside>
 
-        <footer className={styles.footer}>2</footer>
+        <footer className={styles.footer}>Footer</footer>
       </main>
     );
   },

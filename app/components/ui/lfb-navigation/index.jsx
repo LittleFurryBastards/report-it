@@ -1,6 +1,8 @@
 'use strict';
 
 import React from 'react';
+import {Link} from 'react-router';
+
 require('./lfb-navigation.scss');
 
 export default React.createClass({
@@ -8,10 +10,8 @@ export default React.createClass({
     return (
       <nav className="navigation">
         <ul>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
         </ul>
       </nav>
     );
