@@ -15,15 +15,15 @@ export default React.createClass({
     };
   },
   render() {
+    const openStyle = this.state.isOpen && `${styles.aside}--open`;
+
     return (
       <main className={styles.wrapper}>
         <Header onMenuClick={this.toggleMenu}/>
 
         <article className={styles.content}>3</article>
 
-        <aside
-          className={this.state.isOpen ? `${styles.aside}` : `${styles.aside} ${styles.aside}--open`}
-          onClick={this.toggleMenu}>
+        <aside className={`${styles.aside} ${openStyle}`} onClick={this.toggleMenu}>
           <Navigation/>
         </aside>
 

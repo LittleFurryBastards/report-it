@@ -1,7 +1,7 @@
 'use strict';
 
 import React from 'react';
-require('./styles.scss');
+require('./lfb-navigation.scss');
 
 export default React.createClass({
   render() {
