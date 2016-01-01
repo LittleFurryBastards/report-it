@@ -3,3 +3,5 @@ node_modules/
 stylelintrc.config.js
 .eslintrc.js
 webpack.config.js
+webpack.production.config.js
+
