@@ -3,45 +3,28 @@
 const path = require('path');
 const Webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const stylelintConfig = require('./stylelintrc.json');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const FOLDER = {
-  assets: 'assets',
-  build: 'build',
-  components: 'components',
-  javascript: 'js',
-  nodeModules: 'node_modules',
-  source: 'app',
-  styles: 'css',
-  vendor: 'vendor'
-};
-
-const PATH = {
-  assets: path.resolve(__dirname, FOLDER.build, FOLDER.assets),
-  components: path.resolve(__dirname, FOLDER.source, FOLDER.components),
-  entry: path.resolve(__dirname, FOLDER.source, FOLDER.javascript, 'index.jsx'),
-  styles: path.resolve(__dirname, FOLDER.source, FOLDER.styles)
+  nodeModules: 'node_modules'
 };
 
 module.exports = {
 
   entry: {
     app: [
-      'webpack/hot/only-dev-server',
-      'webpack-dev-server/client?http://localhost:8080',
-      PATH.entry
+      'webpack-hot-middleware/client?reload=true',
+      path.join(__dirname, 'app/js/index.jsx')
     ],
     vendor: ['react', 'react-dom']
   },
 
   output: {
-    path: PATH.assets,
-    publicPath: FOLDER.assets,
-    filename: FOLDER.javascript + '/bundle.js'
-  },
-
-  devServer: {
-    contentBase: FOLDER.build
+    path: path.join(__dirname, '/build/'),
+    publicPath: '/',
+    filename: 'js/[name].js'
   },
 
   devtool: 'source-map',
@@ -51,7 +34,6 @@ module.exports = {
   },
 
   module: {
-
     preLoaders: [
       {
         test: /\.(es6|jsx)$/,
@@ -70,14 +52,14 @@ module.exports = {
       // Build inline styles for all components
       {
         test: /\.scss/,
-        exclude: [FOLDER.nodeModules, PATH.styles],
+        exclude: [FOLDER.nodeModules, path.join(__dirname, 'app/css')],
         loader: 'style!css?modules&localIdentName=[name]__[local]!postcss!sass'
       },
 
       // Build main styles
       {
         test: /\.scss$/,
-        exclude: [FOLDER.nodeModules, PATH.components],
+        exclude: [FOLDER.nodeModules, path.join(__dirname, 'app/components')],
         loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]!postcss!sass')
       }
     ]
@@ -91,7 +73,18 @@ module.exports = {
   },
 
   plugins: [
-    new Webpack.optimize.CommonsChunkPlugin('vendor', FOLDER.javascript + '/' + FOLDER.vendor + '/bundle.js'),
-    new ExtractTextPlugin(FOLDER.styles + '/styles.css')
+    new CopyWebpackPlugin([
+      { from: 'app' }
+    ], {
+      ignore: ['*.html', 'css/*', 'js/*', 'components/**/**']
+    }),
+    new HtmlWebpackPlugin({
+      template: 'app/index.html',
+      inject: 'body',
+      filename: 'index.html'
+    }),
+    new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.optimize.CommonsChunkPlugin('vendor', 'js/[name].js'),
+    new ExtractTextPlugin('css/[name].css')
   ]
 };
