@@ -1,5 +1,12 @@
 module.exports = {
   "parser": "babel-eslint",
   "plugins": ["react"],
-  "extends": "chariyski/configurations/es6-react"
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "comma-dangle": 0
+  }
 };
