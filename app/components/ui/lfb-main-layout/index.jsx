@@ -19,6 +19,10 @@ export default React.createClass({
     };
   },
 
+  toggleMenu() {
+    this.setState({ isOpen: !this.state.isOpen });
+  },
+
   render() {
     const openStyle = this.state.isOpen && `${styles.aside}--open`;
 
@@ -35,9 +39,5 @@ export default React.createClass({
         <footer className={styles.footer}>Footer</footer>
       </main>
     );
-  },
-
-  toggleMenu() {
-    this.setState({isOpen: !this.state.isOpen});
   }
 });
