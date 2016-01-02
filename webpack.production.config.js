@@ -25,6 +25,12 @@ config.plugins.push(
   new ExtractTextPlugin('css/[name].min-[hash].css')
 );
 
+config.module.postcss = function () {
+  return [
+    require('autoprefixer')({browsers: ['last 4 version']})
+  ];
+};
+
 config.output.filename = 'js/[name].min-[hash].js';
 
 module.exports = config;

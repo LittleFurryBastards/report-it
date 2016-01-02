@@ -4,7 +4,6 @@ const path = require('path');
 const Webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const stylelintConfig = require('./stylelintrc.json');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const FOLDER = {
@@ -32,14 +31,6 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
-      {
-        test: /\.(es6|jsx)$/,
-        loaders: ['eslint'],
-        exclude: FOLDER.nodeModules
-      }
-    ],
-
     loaders: [
       {
         test: /\.(es6|jsx)$/,
@@ -61,13 +52,6 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]!postcss!sass')
       }
     ]
-  },
-
-  postcss: function () {
-    return [
-      require('stylelint')(stylelintConfig),
-      require('autoprefixer')({browsers: ['last 4 version']})
-    ];
   },
 
   plugins: [
