@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aleksandrenko/report-it.git"
+    "url": "git+https://github.com/LittleFurryBastards/report-it.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/aleksandrenko/report-it/issues"
+    "url": "https://github.com/LittleFurryBastards/report-it/issues"
   },
-  "homepage": "https://github.com/aleksandrenko/report-it#readme",
+  "homepage": "https://github.com/LittleFurryBastards/report-it#readme",
   "dependencies": {
     "express": "^4.13.3",
     "history": "^1.13.1",
