@@ -29,26 +29,18 @@ export default React.createClass({
 
         <article className={styles.content}>{this.props.children}</article>
 
-        <aside className={`${styles.aside} ${asideIsVisible}`} onClick={this.toggleAside}>
+        <aside className={`${styles.aside} ${asideIsVisible}`}>
           <Navigation/>
         </aside>
 
         <footer className={styles.footer}>Footer</footer>
 
-        <div
-          className={`${styles.overlay} ${overlayIsVisible}`}
-          data-can-toggle-aside="true"
-          onClick={this.toggleAside}>
-        </div>
+        <div className={`${styles.overlay} ${overlayIsVisible}`} onClick={this.toggleAside}></div>
       </main>
     );
   },
 
-  toggleAside(event) {
-    const target = event.target;
-
-    if (target && target.getAttribute('data-can-toggle-aside') === 'true') {
-      this.setState({isAsideVisible: !this.state.isAsideVisible});
-    }
+  toggleAside() {
+    this.setState({isAsideVisible: !this.state.isAsideVisible});
   }
 });

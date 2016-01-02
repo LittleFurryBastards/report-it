@@ -13,7 +13,7 @@ export default React.createClass({
   render() {
     return (
       <header className={styles.header}>
-        <button data-can-toggle-aside="true" onClick={this.props.onMenuButtonClick}>menu</button>
+        <button onClick={this.props.onMenuButtonClick}>menu</button>
       </header>
     );
   }
