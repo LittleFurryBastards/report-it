@@ -1,0 +1,21 @@
+.header {
+  background: #fff;
+  padding: 10px;
+}
+
+.filterInput {
+  border: solid 1px;
+}
+
+.list {
+  display: block;
+}
+
+.list li {
+  padding: 5px 10px;
+  background: #fafafa;
+}
+
+.list li:nth-child(2n) {
+  background: #fff;
+}
