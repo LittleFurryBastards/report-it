@@ -30,7 +30,7 @@ export default React.createClass({
         <article className={styles.content}>{this.props.children}</article>
 
         <aside className={`${styles.aside} ${asideIsVisible}`}>
-          <Navigation/>
+          <Navigation onNavigationItemClick={this.toggleAside}/>
         </aside>
 
         <footer className={styles.footer}>Footer</footer>

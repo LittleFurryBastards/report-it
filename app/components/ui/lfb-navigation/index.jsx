@@ -3,13 +3,19 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-require('./lfb-navigation.scss');
+// Styles
+import styles from './lfb-navigation.scss';
+require('./theming/lfb-navigation.scss');
 
 export default React.createClass({
+  propTypes: {
+    onNavigationItemClick: React.PropTypes.func.isRequired
+  },
+
   render() {
     return (
-      <nav className="navigation">
-        <ul>
+      <nav className={styles.navigation}>
+        <ul onClick={this.props.onNavigationItemClick}>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
         </ul>
