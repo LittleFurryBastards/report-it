@@ -8,12 +8,12 @@ require('./theming/lfb-header.scss');
 
 export default React.createClass({
   propTypes: {
-    onMenuClick: React.PropTypes.func.isRequired
+    onMenuButtonClick: React.PropTypes.func.isRequired
   },
   render() {
     return (
       <header className={styles.header}>
-        <button onClick={this.props.onMenuClick}>menu</button>
+        <button onClick={this.props.onMenuButtonClick}>menu</button>
       </header>
     );
   }

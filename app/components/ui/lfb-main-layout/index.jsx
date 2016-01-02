@@ -15,29 +15,32 @@ export default React.createClass({
 
   getInitialState() {
     return {
-      isOpen: false
+      isAsideVisible: false
     };
   },
 
   render() {
-    const openStyle = this.state.isOpen && `${styles.aside}--open`;
+    const asideIsVisible = this.state.isAsideVisible && `${styles.aside}--isVisible`,
+      overlayIsVisible = this.state.isAsideVisible && `${styles.overlay}--isVisible`;
 
     return (
       <main className={styles.wrapper}>
-        <Header onMenuClick={this.toggleMenu}/>
+        <Header onMenuButtonClick={this.toggleAside}/>
 
         <article className={styles.content}>{this.props.children}</article>
 
-        <aside className={`${styles.aside} ${openStyle}`} onClick={this.toggleMenu}>
+        <aside className={`${styles.aside} ${asideIsVisible}`}>
           <Navigation/>
         </aside>
 
         <footer className={styles.footer}>Footer</footer>
+
+        <div className={`${styles.overlay} ${overlayIsVisible}`} onClick={this.toggleAside}></div>
       </main>
     );
   },
 
-  toggleMenu() {
-    this.setState({isOpen: !this.state.isOpen});
+  toggleAside() {
+    this.setState({isAsideVisible: !this.state.isAsideVisible});
   }
 });
