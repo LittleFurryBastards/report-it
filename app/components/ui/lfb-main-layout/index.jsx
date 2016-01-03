@@ -33,7 +33,7 @@ export default React.createClass({
           <Navigation items={this._getVerticalNavigationLinks()} onNavigationItemClick={this.toggleAside}/>
         </aside>
 
-        <footer>
+        <footer className={styles.footer}>
           <Navigation isVertical={false} items={this._getHorizontalNavigationLinks()}/>
         </footer>
 

@@ -29,6 +29,11 @@
   transform: translateX(20rem);
 }
 
+.footer {
+  display: flex;
+  height: 56px;
+}
+
 .overlay {
   position: absolute;
   top: 0;
