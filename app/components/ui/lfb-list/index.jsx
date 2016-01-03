@@ -52,8 +52,5 @@ export default React.createClass({
         })}
       </ul>
     );
-  },
-  handleFilterChange() {
-    this.render();
   }
 });

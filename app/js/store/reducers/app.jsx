@@ -1,5 +1,7 @@
 'use strict';
 
+import ACTION_TYPES from '../actions/types.jsx';
+
 const initialState = {
   categories: [
     'Huskey',
@@ -12,11 +14,11 @@ const initialState = {
 
 export default (previousState = initialState, action) => {
   switch (action.type) {
-  case 'ADD_CATEGORY':
+  case ACTION_TYPES.ADD_CATEGORY:
     return Object.assign({}, previousState, {
       categories: [
         ...previousState.categories,
-        action.category
+        action.payload
       ]});
   default:
     return previousState;
