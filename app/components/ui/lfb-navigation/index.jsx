@@ -17,10 +17,7 @@ export default React.createClass({
 
   getDefaultProps() {
     return {
-      isVertical: true,
-      items: [
-
-      ]
+      isVertical: true
     };
   },
 
@@ -45,11 +42,13 @@ export default React.createClass({
     return (
       <ul onClick={this.props.onNavigationItemClick}>
         {this.props.items.map((item) => {
+          const {rout, icon, routLinkText} = item;
+
           return (
-            <li key={item.rout}>
-              <Link to={`/${item.rout}`}>
-                <img className={styles.icon} src={require(`./svg/${item.icon}.svg`)}/>
-                <span>{item.routLinkText}</span>
+            <li key={rout}>
+              <Link to={`/${rout}`}>
+                <img className={styles.icon} src={require(`./svg/${icon}.svg`)}/>
+                <span>{routLinkText}</span>
               </Link>
             </li>
           );
