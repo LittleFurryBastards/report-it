@@ -20,8 +20,8 @@ export default React.createClass({
   },
 
   render() {
-    const asideIsVisible = this.state.isAsideVisible && `${styles.aside}--isVisible`,
-      overlayIsVisible = this.state.isAsideVisible && `${styles.overlay}--isVisible`;
+    const asideIsVisible = this.state.isAsideVisible ? `${styles.aside}--is-visible` : '',
+      overlayIsVisible = this.state.isAsideVisible ? `${styles.overlay}--is-visible` : '';
 
     return (
       <main className={styles.wrapper}>
