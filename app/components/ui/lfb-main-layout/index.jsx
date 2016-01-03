@@ -30,10 +30,12 @@ export default React.createClass({
         <article className={styles.content}>{this.props.children}</article>
 
         <aside className={`${styles.aside} ${asideIsVisible}`}>
-          <Navigation onNavigationItemClick={this.toggleAside}/>
+          <Navigation items={this._getVerticalNavigationLinks()} onNavigationItemClick={this.toggleAside}/>
         </aside>
 
-        <footer className={styles.footer}>Footer</footer>
+        <footer>
+          <Navigation isVertical={false} items={this._getHorizontalNavigationLinks()}/>
+        </footer>
 
         <div className={`${styles.overlay} ${overlayIsVisible}`} onClick={this.toggleAside}></div>
       </main>
@@ -42,5 +44,23 @@ export default React.createClass({
 
   toggleAside() {
     this.setState({isAsideVisible: !this.state.isAsideVisible});
+  },
+
+  _getVerticalNavigationLinks() {
+    return [
+      {icon: 'plus32', rout: '', routLinkText: 'Home'},
+      {icon: 'plus32', rout: 'profile', routLinkText: 'Profile'},
+      {icon: 'plus32', rout: 'about', routLinkText: 'About'},
+      {icon: 'plus32', rout: 'contacts', routLinkText: 'Contact us'},
+      {icon: 'plus32', rout: 'logout', routLinkText: 'Logout'}
+    ];
+  },
+
+  _getHorizontalNavigationLinks() {
+    return [
+      {icon: 'plus32', rout: '', routLinkText: 'Home'},
+      {icon: 'plus32', rout: 'profile', routLinkText: 'Profile'},
+      {icon: 'plus32', rout: 'logout', routLinkText: 'Logout'}
+    ];
   }
 });
