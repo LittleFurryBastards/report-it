@@ -17,11 +17,14 @@
 }
 
 .aside {
+  display: flex;
+
   position: absolute;
   top: 0;
   bottom: 0;
   left: -20rem;
   width: 20rem;
+
   will-change: transform;
   z-index: 1000;
 }

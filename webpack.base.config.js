@@ -50,6 +50,12 @@ module.exports = {
         test: /\.scss$/,
         exclude: [FOLDER.nodeModules, path.join(__dirname, 'app/components')],
         loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]__[local]!postcss!sass')
+      },
+
+      // Load images
+      {
+        test: /\.(jpe?g|png|gif|svg)/,
+        loader: 'url'
       }
     ]
   },

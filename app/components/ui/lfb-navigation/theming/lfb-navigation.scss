@@ -1,0 +1,16 @@
+.navigation {
+  background: #fff;
+  border-right: 1px solid #ebebeb;
+
+  li {
+    border-bottom: 1px solid #ebebeb;
+
+    &:first-of-type {
+      border-top: 1px solid #ebebeb;
+    }
+  }
+
+  a {
+    color: #000;
+  }
+}
