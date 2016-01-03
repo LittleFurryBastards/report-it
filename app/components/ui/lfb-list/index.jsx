@@ -14,7 +14,7 @@ export default React.createClass({
   mixins: [LinkedStateMixin],
   getDefaultProps() {
     return {
-      items: ['Huskey', 'Richback', 'Labrador', 'Corgie', 'Mastiff']
+      items: []
     };
   },
   getInitialState() {
