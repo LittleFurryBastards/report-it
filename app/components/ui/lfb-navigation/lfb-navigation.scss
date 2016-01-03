@@ -1,3 +1,18 @@
-.navigation a {
-  display: block;
+.navigation {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  padding: 56px 1rem 0 1rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    height: 56px;
+    padding: 0 16px;
+  }
+
+  a {
+    display: flex;
+    flex: 1 1 0;
+  }
 }
