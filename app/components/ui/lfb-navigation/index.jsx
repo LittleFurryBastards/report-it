@@ -10,27 +10,29 @@ require('./theming/lfb-navigation.scss');
 export default React.createClass({
 
   propTypes: {
-    isHorizontal: React.PropTypes.bool.isRequired,
+    isVertical: React.PropTypes.bool.isRequired,
     items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    onNavigationItemClick: React.PropTypes.func.isRequired
+    onNavigationItemClick: React.PropTypes.func
   },
 
   getDefaultProps() {
     return {
-      isHorizontal: false,
+      isVertical: true,
       items: [
-        {icon: 'plus32', rout: '', routLinkText: 'Home'},
-        {icon: 'plus32', rout: 'profile', routLinkText: 'Profile'},
-        {icon: 'plus32', rout: 'about', routLinkText: 'About'},
-        {icon: 'plus32', rout: 'contacts', routLinkText: 'Contact us'},
-        {icon: 'plus32', rout: 'logout', routLinkText: 'Logout'}
+
       ]
     };
   },
 
 
   render() {
-    const navigationStyle = this.props.isHorizontal ? `${styles.navigation}--is-horizontal}` : '';
+    let navigationStyle;
+
+    if (this.props.isVertical === true) {
+      navigationStyle = `${styles.navigation}--is-vertical`;
+    } else {
+      navigationStyle = `${styles.navigation}--is-horizontal`;
+    }
 
     return (
       <nav className={`${styles.navigation} ${navigationStyle}`}>
