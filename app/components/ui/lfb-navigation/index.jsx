@@ -18,9 +18,16 @@ export default React.createClass({
   getDefaultProps() {
     return {
       isHorizontal: false,
-      items: [{home: 'Home'}, {profile: 'Profile'}, {about: 'About'}, {contacts: 'Contact us'}, {logout: 'Logout'}]
+      items: [
+        {icon: 'plus32', rout: '', routLinkText: 'Home'},
+        {icon: 'plus32', rout: 'profile', routLinkText: 'Profile'},
+        {icon: 'plus32', rout: 'about', routLinkText: 'About'},
+        {icon: 'plus32', rout: 'contacts', routLinkText: 'Contact us'},
+        {icon: 'plus32', rout: 'logout', routLinkText: 'Logout'}
+      ]
     };
   },
+
 
   render() {
     const navigationStyle = this.props.isHorizontal ? `${styles.navigation}--is-horizontal}` : '';
@@ -36,17 +43,14 @@ export default React.createClass({
     return (
       <ul onClick={this.props.onNavigationItemClick}>
         {this.props.items.map((item) => {
-          const rout = Object.keys(item)[0],
-            routLinkText = item[rout];
-          let link;
-
-          if (rout === 'home') {
-            link = <li key={rout}><Link to={`/`}>{routLinkText}</Link></li>;
-          } else {
-            link = <li key={rout}><Link to={`/${rout}`}>{routLinkText}</Link></li>;
-          }
-
-          return link;
+          return (
+            <li key={item.rout}>
+              <Link to={`/${item.rout}`}>
+                <img className={styles.icon} src={require(`./svg/${item.icon}.svg`)}/>
+                <span>{item.routLinkText}</span>
+              </Link>
+            </li>
+          );
         })}
       </ul>
     );

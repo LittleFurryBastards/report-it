@@ -6,13 +6,20 @@
 
   li {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     height: 56px;
     padding: 0 16px;
   }
 
   a {
     display: flex;
+    align-items: center;
     flex: 1 1 0;
   }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem;
 }
