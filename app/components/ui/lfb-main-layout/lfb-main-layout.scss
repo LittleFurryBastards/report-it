@@ -8,26 +8,30 @@
   height: 100vh;
 }
 
-.footer {
-  height: 3rem;
-}
-
 .content {
   flex-grow: 1;
 }
 
 .aside {
+  display: flex;
+
   position: absolute;
   top: 0;
   bottom: 0;
   left: -20rem;
   width: 20rem;
+
   will-change: transform;
   z-index: 1000;
 }
 
-.aside--isVisible {
+.aside--is-visible {
   transform: translateX(20rem);
+}
+
+.footer {
+  display: flex;
+  height: 56px;
 }
 
 .overlay {
@@ -40,6 +44,6 @@
   will-change: transform;
 }
 
-.overlay--isVisible {
+.overlay--is-visible {
   transform: translateX(100%);
 }

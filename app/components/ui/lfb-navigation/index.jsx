@@ -8,18 +8,52 @@ import styles from './lfb-navigation.scss';
 require('./theming/lfb-navigation.scss');
 
 export default React.createClass({
+
   propTypes: {
-    onNavigationItemClick: React.PropTypes.func.isRequired
+    isVertical: React.PropTypes.bool.isRequired,
+    items: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    onNavigationItemClick: React.PropTypes.func
   },
 
+  getDefaultProps() {
+    return {
+      isVertical: true
+    };
+  },
+
+
   render() {
+    let navigationStyle;
+
+    if (this.props.isVertical === true) {
+      navigationStyle = `${styles.navigation}--is-vertical`;
+    } else {
+      navigationStyle = `${styles.navigation}--is-horizontal`;
+    }
+
     return (
-      <nav className={styles.navigation}>
-        <ul onClick={this.props.onNavigationItemClick}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-        </ul>
+      <nav className={`${styles.navigation} ${navigationStyle}`}>
+        {this.renderItems()}
       </nav>
+    );
+  },
+
+  renderItems() {
+    return (
+      <ul onClick={this.props.onNavigationItemClick}>
+        {this.props.items.map((item) => {
+          const {rout, icon, routLinkText} = item;
+
+          return (
+            <li key={rout}>
+              <Link to={`/${rout}`}>
+                <img className={styles.icon} src={require(`./svg/${icon}.svg`)}/>
+                <span>{routLinkText}</span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     );
   }
 });

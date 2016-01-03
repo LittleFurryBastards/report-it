@@ -1,3 +1,59 @@
-.navigation a {
-  display: block;
+/* ==========================================================================
+   lfb-navigation layout styles
+   ========================================================================== */
+
+.navigation {
+  display: flex;
+  flex: 1 1 0;
+
+  ul {
+    display: inherit;
+    flex-direction: inherit;
+    flex: 1 1 0;
+  }
+
+  li {
+    display: inherit;
+    align-items: stretch;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    flex: 1 1 0;
+  }
+
+  /* Modifiers
+     ========================================================================== */
+
+  &.navigation--is-vertical {
+    flex-direction: column;
+    padding: 56px 1rem 0 1rem;
+
+    li {
+      height: 48px;
+    }
+
+    a span:nth-child(2) {
+      margin-left: 5px; //TODO reduce specificity
+    }
+  }
+
+  &.navigation--is-horizontal {
+    flex-direction: row;
+
+    li {
+      flex: 1 1 0;
+    }
+
+    a {
+      flex-direction: column;
+    }
+  }
+}
+
+// TODO remove to icon component
+.icon {
+  width: 32px;
+  height: 32px;
 }
