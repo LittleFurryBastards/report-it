@@ -1,26 +1,27 @@
 'use strict';
 
-import ACTION_TYPES from '../actions/types.jsx';
+/* eslint new-cap: 0 */
 
-const initialState = {
-  categories: [
+import ACTION_TYPES from '../actions/types.jsx';
+import {Map, List} from 'immutable';
+
+const initialState = Map({
+  categories: List.of(
     'Huskey',
     'Richback',
     'Labrador',
     'Corgie',
     'Mastiff'
-  ]
-};
+  )
+});
 
-export default (previousState = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
   case ACTION_TYPES.ADD_CATEGORY:
-    return Object.assign({}, previousState, {
-      categories: [
-        ...previousState.categories,
-        action.payload
-      ]});
+    return state.update('categories', (categories) => {
+      return categories.push(action.payload);
+    });
   default:
-    return previousState;
+    return state;
   }
 };
