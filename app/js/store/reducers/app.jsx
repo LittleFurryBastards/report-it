@@ -18,9 +18,7 @@ const initialState = Map({
 export default (state = initialState, action) => {
   switch (action.type) {
   case ACTION_TYPES.ADD_CATEGORY:
-    const categories = state.get('categories');
-
-    return state.set('categories', categories.push(action.payload));
+    return state.update('categories', categories => categories.push(action.payload));
   default:
     return state;
   }
