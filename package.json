@@ -27,8 +27,10 @@
   "dependencies": {
     "express": "^4.13.3",
     "history": "^1.13.1",
+    "immutable": "^3.7.6",
     "react": "^0.14.3",
     "react-addons-linked-state-mixin": "^0.14.5",
+    "react-addons-pure-render-mixin": "^0.14.5",
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.6",
     "react-router": "^1.0.3",

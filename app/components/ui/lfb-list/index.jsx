@@ -2,6 +2,7 @@
 
 import React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 // Styles
 import styles from './lfb-list.scss';
@@ -11,7 +12,7 @@ export default React.createClass({
   propTypes: {
     items: React.PropTypes.array
   },
-  mixins: [LinkedStateMixin],
+  mixins: [LinkedStateMixin, PureRenderMixin],
   getDefaultProps() {
     return {
       items: []

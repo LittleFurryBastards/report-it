@@ -11,7 +11,7 @@ export default React.createClass({
     return (
       <div>
         Home Page
-        <List items={store.getState().categories} />
+        <List items={store.getState().get('categories').toArray()} />
       </div>
     );
   }
