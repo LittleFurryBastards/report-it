@@ -2,6 +2,8 @@
 
 import React from 'react';
 import LinkedStateMixin from 'react-addons-linked-state-mixin';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+import ImmutablePropTypes from 'react-immutable-proptypes';
 
 // Styles
 import styles from './lfb-list.scss';
@@ -9,9 +11,9 @@ require('./theming/lfb-list.scss');
 
 export default React.createClass({
   propTypes: {
-    items: React.PropTypes.array
+    items: ImmutablePropTypes.list
   },
-  mixins: [LinkedStateMixin],
+  mixins: [LinkedStateMixin, PureRenderMixin],
   getDefaultProps() {
     return {
       items: []
