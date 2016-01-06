@@ -5,4 +5,4 @@ stylelintrc.config.js
 webpack.base.config.js
 webpack.config.js
 webpack.production.config.js
-
+coverage
