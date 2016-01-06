@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Header from '../lfb-header/index.jsx';
 import Navigation from '../lfb-navigation/index.jsx';
 
 // Styles
@@ -25,7 +24,9 @@ export default React.createClass({
 
     return (
       <main className={styles.wrapper}>
-        <Header onMenuButtonClick={this.toggleAside}/>
+        <header className={styles.header}>
+          <button onClick={this.toggleAside}>menu</button>
+        </header>
 
         <article className={styles.content}>{this.props.children}</article>
 
