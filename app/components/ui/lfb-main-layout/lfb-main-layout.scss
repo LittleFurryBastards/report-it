@@ -8,6 +8,13 @@
   height: 100vh;
 }
 
+.header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .content {
   flex-grow: 1;
 }
