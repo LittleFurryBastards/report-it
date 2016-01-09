@@ -6,8 +6,8 @@ export default React.createClass({
   render() {
     return (
       <div>
-      New issue
-    </div>
-  );
+        People page
+      </div>
+    );
   }
 });

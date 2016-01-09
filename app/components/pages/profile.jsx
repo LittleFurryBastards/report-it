@@ -6,8 +6,8 @@ export default React.createClass({
   render() {
     return (
       <div>
-      Profile
-    </div>
-  );
+        Profile
+      </div>
+    );
   }
 });
