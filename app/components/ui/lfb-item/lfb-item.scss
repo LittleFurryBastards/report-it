@@ -1,0 +1,27 @@
+.item {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.textWrapper .text {
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.icon {
+  height: 16px;
+  margin-right: 5px;
+  width: 16px;
+}
+
+.subtextWrapper .text {
+  font-size: 80%;
+}
+
+.subIcon {
+  height: 10px;
+  margin-left: 6px;
+  margin-right: 4px;
+  width: 10px;
+}

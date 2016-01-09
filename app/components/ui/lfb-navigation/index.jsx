@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {Link} from 'react-router';
+import Icon from '../lfb-icon/index.jsx';
 
 // Styles
 import styles from './lfb-navigation.scss';
@@ -47,7 +48,7 @@ export default React.createClass({
           return (
             <li key={rout}>
               <Link to={`/${rout}`}>
-                <img className={styles.icon} src={require(`./svg/${icon}.svg`)}/>
+                <Icon type={icon} />
                 <span>{routLinkText}</span>
               </Link>
             </li>
