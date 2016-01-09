@@ -70,8 +70,8 @@ export default React.createClass({
   _getHorizontalNavigationLinks() {
     return [
       {icon: 'plus32', rout: '', routLinkText: 'Home'},
-      {icon: 'plus32', rout: 'profile', routLinkText: 'Profile'},
-      {icon: 'plus32', rout: 'logout', routLinkText: 'Logout'}
+      {icon: 'plus32', rout: 'signals', routLinkText: 'Signals'},
+      {icon: 'plus32', rout: 'people', routLinkText: 'People'}
     ];
   },
 
@@ -82,7 +82,7 @@ export default React.createClass({
         window.history.go(-1);
       }}>Cancel X</a>);
     } else {
-      return <Link to={"/issue"}><span>Create Issue +</span></Link>;
+      return <Link to={"/issue"}><span>Create Signal</span></Link>;
     }
   },
 
