@@ -16,11 +16,11 @@ export default React.createClass({
     return (
       <div className={styles.item}>
         <div className={styles.textWrapper}>
-          <Icon className={styles.icon} type="plus32" />
+          <Icon className={styles.icon} type="marker" />
           <span className={styles.text}>{this.props.text}</span>
         </div>
         <div className={styles.subtextWrapper}>
-          <Icon className={styles.subIcon} type="plus32" />
+          <Icon className={styles.subIcon} type="report" />
           <span className={styles.text}>{this.props.subtext}</span>
         </div>
       </div>

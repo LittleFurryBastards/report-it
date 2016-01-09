@@ -59,19 +59,19 @@ export default React.createClass({
 
   _getVerticalNavigationLinks() {
     return [
-      {icon: 'plus32', rout: '', routLinkText: 'Home'},
-      {icon: 'plus32', rout: 'profile', routLinkText: 'Profile'},
-      {icon: 'plus32', rout: 'about', routLinkText: 'About'},
-      {icon: 'plus32', rout: 'contacts', routLinkText: 'Contact us'},
-      {icon: 'plus32', rout: 'logout', routLinkText: 'Logout'}
+      {icon: 'home', rout: '', routLinkText: 'Home'},
+      {icon: 'add', rout: 'profile', routLinkText: 'Profile'},
+      {icon: 'info', rout: 'about', routLinkText: 'About'},
+      {icon: 'info', rout: 'contacts', routLinkText: 'Contact us'},
+      {icon: 'info', rout: 'logout', routLinkText: 'Logout'}
     ];
   },
 
   _getHorizontalNavigationLinks() {
     return [
-      {icon: 'plus32', rout: '', routLinkText: 'Home'},
-      {icon: 'plus32', rout: 'signals', routLinkText: 'Signals'},
-      {icon: 'plus32', rout: 'people', routLinkText: 'People'}
+      {icon: 'home', rout: '', routLinkText: 'Home'},
+      {icon: 'map', rout: 'signals', routLinkText: 'Signals'},
+      {icon: 'people', rout: 'people', routLinkText: 'People'}
     ];
   },
 
