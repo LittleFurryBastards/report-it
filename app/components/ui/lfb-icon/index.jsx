@@ -12,7 +12,7 @@ export default React.createClass({
     className: React.PropTypes.string
   },
   render() {
-    const iconClassName = this.props.className || styles.icon;
+    const iconClassName = styles.icon + ' ' + this.props.className || '';
 
     return <img className={iconClassName} src={require(`./svg/${this.props.type}.svg`)}/>;
   }
