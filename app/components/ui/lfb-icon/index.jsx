@@ -8,12 +8,17 @@ require('./theming/lfb-icon.scss');
 
 export default React.createClass({
   propTypes: {
-    type: React.PropTypes.string,
+    type: React.PropTypes.string.isRequired,
     className: React.PropTypes.string
   },
-  render() {
-    const iconClassName = styles.icon + ' ' + this.props.className || '';
 
-    return <img className={iconClassName} src={require(`./svg/${this.props.type}.svg`)}/>;
+  getDefaultProps() {
+    return {
+      className: ''
+    };
+  },
+
+  render() {
+    return <img className={`${styles.icon} ${this.props.className}`} src={require(`./svg/${this.props.type}.svg`)}/>;
   }
 });
