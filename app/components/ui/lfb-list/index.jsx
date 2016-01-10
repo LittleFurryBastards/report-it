@@ -17,9 +17,6 @@ export default React.createClass({
   mixins: [LinkedStateMixin, PureRenderMixin],
   getDefaultProps() {
     return {
-      onItemClick: (event) => {
-        console.log(event);
-      },
       items: []
     };
   },
