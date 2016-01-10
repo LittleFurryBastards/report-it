@@ -59,19 +59,19 @@ export default React.createClass({
 
   _getVerticalNavigationLinks() {
     return [
-      {icon: 'home', rout: '', routLinkText: 'Home'},
-      {icon: 'add', rout: 'profile', routLinkText: 'Profile'},
-      {icon: 'info', rout: 'about', routLinkText: 'About'},
-      {icon: 'info', rout: 'contacts', routLinkText: 'Contact us'},
-      {icon: 'info', rout: 'logout', routLinkText: 'Logout'}
+      {icon: 'home', route: '', routLinkText: 'Home'},
+      {icon: 'add', route: 'profile', routLinkText: 'Profile'},
+      {icon: 'info', route: 'about', routLinkText: 'About'},
+      {icon: 'info', route: 'contacts', routLinkText: 'Contact us'},
+      {icon: 'info', route: 'logout', routLinkText: 'Logout'}
     ];
   },
 
   _getHorizontalNavigationLinks() {
     return [
-      {icon: 'home', rout: '', routLinkText: 'Home'},
-      {icon: 'map', rout: 'signals', routLinkText: 'Signals'},
-      {icon: 'people', rout: 'people', routLinkText: 'People'}
+      {icon: 'home', route: '', routLinkText: 'Home'},
+      {icon: 'map', route: 'signals', routLinkText: 'Signals'},
+      {icon: 'people', route: 'people', routLinkText: 'People'}
     ];
   },
 
@@ -82,12 +82,12 @@ export default React.createClass({
         window.history.go(-1);
       }}>Cancel X</a>);
     } else {
-      return <Link to={"/issue"}><span>Create Signal</span></Link>;
+      return <Link to={"/create-signal"}><span>Create Signal</span></Link>;
     }
   },
 
   _setShowButtonState() {
-    if (window.location.pathname.indexOf('issue') === -1) {
+    if (window.location.pathname.indexOf('create-signal') === -1) {
       this.setState({showBackButton: false});
     } else {
       this.setState({showBackButton: true});

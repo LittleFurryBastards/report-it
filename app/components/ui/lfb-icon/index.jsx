@@ -11,13 +11,11 @@ export default React.createClass({
     type: React.PropTypes.string.isRequired,
     className: React.PropTypes.string
   },
-
   getDefaultProps() {
     return {
       className: ''
     };
   },
-
   render() {
     return <img className={`${styles.icon} ${this.props.className}`} src={require(`./svg/${this.props.type}.svg`)}/>;
   }

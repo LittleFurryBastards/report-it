@@ -43,11 +43,11 @@ export default React.createClass({
     return (
       <ul onClick={this.props.onNavigationItemClick}>
         {this.props.items.map((item) => {
-          const {rout, icon, routLinkText} = item;
+          const {route, icon, routLinkText} = item;
 
           return (
-            <li key={rout}>
-              <Link to={`/${rout}`}>
+            <li key={route}>
+              <Link to={`/${route}`}>
                 <Icon type={icon} />
                 <span>{routLinkText}</span>
               </Link>
