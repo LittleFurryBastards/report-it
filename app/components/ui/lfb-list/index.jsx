@@ -11,11 +11,15 @@ require('./theming/lfb-list.scss');
 
 export default React.createClass({
   propTypes: {
+    onItemClick: React.PropTypes.func,
     items: ImmutablePropTypes.list
   },
   mixins: [LinkedStateMixin, PureRenderMixin],
   getDefaultProps() {
     return {
+      onItemClick: (event) => {
+        console.log(event);
+      },
       items: []
     };
   },
@@ -47,10 +51,18 @@ export default React.createClass({
         return item.toLowerCase().indexOf(filterText) !== -1;
       });
 
+    if (!filteredItems.length) {
+      return (
+        <ul className={styles.list}>
+          <li key="flb-list-item-not-found">No matches found</li>
+        </ul>
+      );
+    }
+
     return (
       <ul className={styles.list}>
         {filteredItems.map((item) => {
-          return <li key={item}>{item}</li>;
+          return <li key={item} onClick={this.props.onItemClick}>{item}</li>;
         })}
       </ul>
     );

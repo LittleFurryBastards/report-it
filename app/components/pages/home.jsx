@@ -11,9 +11,9 @@ export default React.createClass({
   render() {
     return (
       <div>
-        Home Page
         <Item subtext="subtext goes here" text="Main Text" />
-        <List items={store.getState().get('categories')} />
+        <List
+          items={store.getState().get('categories')} />
       </div>
     );
   }
