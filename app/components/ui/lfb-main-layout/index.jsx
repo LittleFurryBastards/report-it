@@ -3,6 +3,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import Navigation from '../lfb-navigation/index.jsx';
+import Icon from '../lfb-icon/index.jsx';
 
 // Styles
 import styles from './lfb-main-layout.scss';
@@ -34,7 +35,7 @@ export default React.createClass({
     return (
       <main className={styles.wrapper}>
         <header className={styles.header}>
-          <button onClick={this.toggleAside}>menu</button>
+          <Icon onClick={this.toggleAside} type="menu"/>
           {this._renderHeaderNavigationLink()}
         </header>
 
@@ -77,12 +78,12 @@ export default React.createClass({
 
   _renderHeaderNavigationLink() {
     if (this.state.showBackButton) {
-      return (<a href="#" onClick={function (event) {
+      return (<a className={styles.link} href="#" onClick={function (event) {
         event.preventDefault();
         window.history.go(-1);
-      }}>Cancel X</a>);
+      }}>Cancel <Icon type="close"/></a>);
     } else {
-      return <Link to={"/create-signal"}><span>Create Signal</span></Link>;
+      return <Link className={styles.link} to={"/create-signal"}>Create Signal <Icon type="add"/></Link>;
     }
   },
 
